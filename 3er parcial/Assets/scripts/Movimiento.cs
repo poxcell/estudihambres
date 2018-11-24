@@ -42,7 +42,7 @@ public class Movimiento : MonoBehaviour
 	public void kncokbackOnDamage()
 	{
 		knockback = true;
-		//TODO salto knockback animation
+		
 		
 		StartCoroutine(ResetKnockback());
 
@@ -51,6 +51,8 @@ public class Movimiento : MonoBehaviour
 	{
 		yield return new WaitForSeconds(.3f);
 		knockback = false;
+		animator.SetBool("knock", false);
+
 	}
 		void FixedUpdate()
 	{
@@ -59,7 +61,7 @@ public class Movimiento : MonoBehaviour
 			if (knockback)
 			{
 				knockbacked();
-
+				animator.SetBool("knock", true);
 			}
 			if (!knockback)
 			{
@@ -188,6 +190,7 @@ public class Movimiento : MonoBehaviour
 			if (Input.GetButton("Joystick"+NumeroDeControl+"Jump"))
 			{
 				vertSpeed = fuerzaSalto;
+				animator.SetBool("salto", true);
 			}
 			else
 			{
@@ -201,6 +204,7 @@ public class Movimiento : MonoBehaviour
 			{
 				vertSpeed = velterminal;
 			}
+			animator.SetBool("salto", false);
 
 		}
 		return vertSpeed;

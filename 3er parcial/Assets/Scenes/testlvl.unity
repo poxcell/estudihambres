@@ -452,6 +452,19 @@ Prefab:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 2074502791}
+    - target: {fileID: 114365502733843428, guid: b5207ba5b61298c428f01b8896d7012e,
+        type: 2}
+      propertyPath: enemigo
+      value: 
+      objectReference: {fileID: 577937558}
+    - target: {fileID: 4893465529211468, guid: b5207ba5b61298c428f01b8896d7012e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 7.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893465529211468, guid: b5207ba5b61298c428f01b8896d7012e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 4.08
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5207ba5b61298c428f01b8896d7012e, type: 2}
   m_IsPrefabAsset: 0

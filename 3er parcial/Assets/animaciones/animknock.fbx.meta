@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 903823d9cacee384faee2f22d6581b9c
+guid: ea05ed91e94c8a14dacf3b7214dab139
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
@@ -147,7 +147,7 @@ ModelImporter:
     400138: Spine_1_Jnt
     400140: Spine_2_Jnt
     400142: Spine_3_Jnt
-    7400000: salto
+    7400000: knock
     9500000: //RootNode
     2186277476908879412: ImportLogs
   externalObjects: {}
@@ -200,18 +200,18 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: salto
+      name: knock
       takeName: salto
-      firstFrame: 8.9
-      lastFrame: 42
+      firstFrame: 17.7
+      lastFrame: 24.8
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
+      hasAdditiveReferencePose: 1
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 1
       loopBlendPositionXZ: 0
@@ -226,7 +226,7 @@ ModelImporter:
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+      additiveReferencePoseFrame: 21.84
     isReadable: 1
   meshes:
     lODScreenPercentages: []
