@@ -18,7 +18,15 @@ public class Movimiento : MonoBehaviour
 	private float vertSpeed;
 	private Animator animator;
 	private CharacterController control;
-	
+
+	private bool muerto;
+
+	private bool knockback;
+
+
+
+	bool shit = true;
+
 	void Awake()
 	{
 		control = GetComponent<CharacterController>();
@@ -26,34 +34,115 @@ public class Movimiento : MonoBehaviour
 		animator = GetComponentInChildren<Animator>();
 	}
 
-
-	void FixedUpdate()
+	public void  SetMuerte(bool a)
 	{
+		muerto = a;
+		
+	}
+	public void kncokbackOnDamage()
+	{
+		knockback = true;
+		//TODO salto knockback animation
+		
+		StartCoroutine(ResetKnockback());
+
+	}
+	IEnumerator ResetKnockback()
+	{
+		yield return new WaitForSeconds(.5f);
+		knockback = false;
+	}
+		void FixedUpdate()
+	{
+		if (!muerto)
+		{
+			if (knockback)
+			{
+				knockbacked();
+
+			}
+			if (!knockback)
+			{
+
+				shit = true;
+				// crea vector 3 en 0,0,0
+				Vector3 movimiento = Vector3.zero;
+
+				// reciven los movimientos del teclado/ control
+				float deltaX = Input.GetAxis("Joystick" + NumeroDeControl + "LX");
+				float deltaZ = -Input.GetAxis("Joystick" + NumeroDeControl + "LY");
+				float deltaY = 0;
+
+
+
+				Quaternion tmp = camara.rotation;
+
+				movimiento = ExtraerMovimiento(movimiento, deltaX, deltaZ, tmp);
+
+				// controla la animacion de movimiento
+				animator.SetFloat("Speed", movimiento.magnitude / 10);
+
+
+				deltaY = Salto();
+
+
+				movimiento.y += deltaY;
+				movimiento *= Time.deltaTime;
+
+
+
+				control.Move(movimiento);
+			}
+		}
+	}
+
+	// fuerza del knockback
+	private void knockbacked()
+	{
+		float flyback = -3f;
+
+
+
 		// crea vector 3 en 0,0,0
 		Vector3 movimiento = Vector3.zero;
 
-		// reciven los movimientos del teclado/ control
-		float deltaX = Input.GetAxis("Joystick"+NumeroDeControl+"LX");
-		float deltaZ = -Input.GetAxis("Joystick" + NumeroDeControl + "LY");
-		float deltaY = 0;
 
+		float deltaY = 0;
 
 
 		Quaternion tmp = camara.rotation;
 
-		movimiento = ExtraerMovimiento(movimiento, deltaX, deltaZ, tmp);
+		movimiento = ExtraerMovimiento(movimiento, 0, flyback, tmp);
 
-		// controla la animacion de movimiento
-		animator.SetFloat("Speed", movimiento.magnitude/10);
-		
+		//  TODO animacion knockback
+		//animator.SetFloat("knockback", movimiento.magnitude / 10);
 
-		deltaY = Salto();
-		
+
+		if (shit)
+		{
+			shit = false;
+			deltaY = fuerzaSalto * 5;
+		}
+		if (!shit)
+		{
+
+			deltaY += gravedad * 5 * Time.deltaTime;
+
+			if (deltaY < velterminal)
+			{
+				deltaY = velterminal;
+			}
+		}
+
+
+
+
+
 
 		movimiento.y += deltaY;
 		movimiento *= Time.deltaTime;
 
-		
+
 
 		control.Move(movimiento);
 	}
