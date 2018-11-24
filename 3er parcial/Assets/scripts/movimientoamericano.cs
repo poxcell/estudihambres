@@ -4,13 +4,10 @@ using UnityEngine;
 
 public class movimientoamericano : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	[SerializeField] private float velocidad;
 	
 	// Update is called once per frame
 	void Update () {
-		
+		transform.Translate(Vector3.forward * Time.deltaTime * velocidad);
 	}
 }
