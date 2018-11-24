@@ -49,7 +49,7 @@ public class Movimiento : MonoBehaviour
 	}
 	IEnumerator ResetKnockback()
 	{
-		yield return new WaitForSeconds(.5f);
+		yield return new WaitForSeconds(.3f);
 		knockback = false;
 	}
 		void FixedUpdate()
@@ -99,7 +99,7 @@ public class Movimiento : MonoBehaviour
 	// fuerza del knockback
 	private void knockbacked()
 	{
-		float flyback = -3f;
+		float flyback = -10f;
 
 
 
@@ -126,7 +126,7 @@ public class Movimiento : MonoBehaviour
 		if (!shit)
 		{
 
-			deltaY += gravedad * 5 * Time.deltaTime;
+			deltaY += gravedad * 15 * Time.deltaTime;
 
 			if (deltaY < velterminal)
 			{

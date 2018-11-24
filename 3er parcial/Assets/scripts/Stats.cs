@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using UnityEngine.UI;
 
 public class Stats : MonoBehaviour {
 	[Tooltip("vida del personaje")]
@@ -19,6 +20,13 @@ public class Stats : MonoBehaviour {
 
 	private Vector3 RespawnPos;
 
+	public Image healthBar;
+
+
+	void Awake()
+	{
+		actualizarBarraVida();
+	}
 
 	
 
@@ -64,7 +72,7 @@ public class Stats : MonoBehaviour {
 		vida = maxvida;
 
 
-
+		actualizarBarraVida();
 		transform.position = RespawnPos;
 	}
 	IEnumerator MuerteEnemy()
@@ -79,13 +87,23 @@ public class Stats : MonoBehaviour {
 		{
 			vida -= daño;
 		}
-		
+
+		actualizarBarraVida();
 	}
 	
+	private void actualizarBarraVida()
+	{
+		if (healthBar)
+		{
+
+			healthBar.fillAmount = vida / maxvida;
+		}
+	}
 	// llamar para recibir vida
 	void tomarVida(float vidai)
 	{
 		vida += vidai;
+		actualizarBarraVida();
 	}
 
 
