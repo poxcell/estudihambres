@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PerdisteBarra : MonoBehaviour {
 
@@ -30,13 +31,12 @@ public class PerdisteBarra : MonoBehaviour {
 
 		if (Input.GetButtonDown("Jump") && seleccion == 0)
 		{
-			// TODO hacer respawn al picarle aqui
+			
 			jugador.GetComponent<Stats>().RespawnSingle();
 		}
 		if (Input.GetButtonDown("Jump") && seleccion == 1)
 		{
-			// TODO regresar al menu
-			Debug.Log("Menu");
+			SceneManager.LoadSceneAsync("menu");
 		}
 		
 	}

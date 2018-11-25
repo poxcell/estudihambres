@@ -16,9 +16,9 @@ public class Stats : MonoBehaviour {
 
 	[Tooltip("tiempo para que te puedan volver a herir")]
 	[SerializeField] private float RespawnTiempo;
-	
 
 
+	[SerializeField] private int vidas;
 
 
 	private Vector3 RespawnPos;
@@ -72,32 +72,40 @@ public class Stats : MonoBehaviour {
 		}
 
 	}
-
+	// respawn multiplayer
 	IEnumerator Respawn()
 	{
-		yield return new WaitForSeconds(RespawnTiempo);
+		
 
-		this.GetComponent<Movimiento>().SetMuerte(false);
-		GetComponentInChildren<Animator>().SetBool("muerto", false);
-		vida = maxvida;
+			yield return new WaitForSeconds(RespawnTiempo);
+
+			this.GetComponent<Movimiento>().SetMuerte(false);
+			GetComponentInChildren<Animator>().SetBool("muerto", false);
+			vida = maxvida;
 
 
-		actualizarBarraVida();
-		transform.position = RespawnPos;
+			actualizarBarraVida();
+			transform.position = RespawnPos;
+			
+		
 	}
 
 	//respawn singleplayer
 
 	public void RespawnSingle()
 	{
-		this.GetComponent<Movimiento>().SetMuerte(false);
-		GetComponentInChildren<Animator>().SetBool("muerto", false);
-		vida = maxvida;
+		if (vidas > 0)
+		{
+			this.GetComponent<Movimiento>().SetMuerte(false);
+			GetComponentInChildren<Animator>().SetBool("muerto", false);
+			vida = maxvida;
 
 
-		actualizarBarraVida();
-		transform.position = RespawnPos;
-		ReprobasteScreen.SetActive(false);
+			actualizarBarraVida();
+			transform.position = RespawnPos;
+			ReprobasteScreen.SetActive(false);
+			vidas--;
+		}
 	}
 
 	IEnumerator MuerteEnemy()
