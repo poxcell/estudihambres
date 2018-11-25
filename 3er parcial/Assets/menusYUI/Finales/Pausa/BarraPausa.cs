@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PerdisteBarra : MonoBehaviour {
-
+public class BarraPausa : MonoBehaviour {
 	[SerializeField] private int seleccion;
 	[SerializeField] private int[] Lugar = new int[4];
-
-	[SerializeField] private GameObject jugador;
-
 	RectTransform m_RectTransform;
 
 	private bool m_isAxisInUse = false;
@@ -17,7 +13,8 @@ public class PerdisteBarra : MonoBehaviour {
 
 
 	private float num;
-
+	[SerializeField] private GameObject jugador;
+	[SerializeField] private GameObject controles;
 	// Use this for initialization
 	void Start () {
 		m_RectTransform = GetComponent<RectTransform>();
@@ -31,14 +28,20 @@ public class PerdisteBarra : MonoBehaviour {
 
 		if (Input.GetButtonDown("Jump") && seleccion == 0)
 		{
-			
-			jugador.GetComponent<Stats>().RespawnSingle();
+
+			transform.parent.parent.gameObject.SetActive(false);
+			jugador.GetComponent<Movimiento>().UnPause();
 		}
 		if (Input.GetButtonDown("Jump") && seleccion == 1)
 		{
+
+			controles.SetActive(true);
+			transform.parent.gameObject.SetActive(false);
+		}
+		if (Input.GetButtonDown("Jump") && seleccion == 2)
+		{
 			SceneManager.LoadSceneAsync("menu");
 		}
-		
 	}
 	private void ciclarSeleccion()
 	{

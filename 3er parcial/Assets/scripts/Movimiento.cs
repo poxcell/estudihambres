@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
+	[SerializeField] GameObject PausaObj;
 	[SerializeField] private string NumeroDeControl;
 	[SerializeField] private Transform camara;
 	//velocidad de Movimiento
@@ -23,13 +24,19 @@ public class Movimiento : MonoBehaviour
 
 	private bool knockback;
 
-
+	private bool pausa = false;
 
 	bool shit = true;
 
 	public string GetControl()
 	{
 		return NumeroDeControl;
+	}
+
+	public void UnPause()
+	{
+		pausa = false;
+		this.gameObject.SetActive(true);
 	}
 
 	void Awake()
@@ -61,6 +68,12 @@ public class Movimiento : MonoBehaviour
 	}
 		void FixedUpdate()
 	{
+		if (Input.GetButtonDown("Submit"))
+		{
+			pausa = true;
+			PausaObj.SetActive(true);
+			this.gameObject.SetActive(false);
+		}
 		if (!muerto)
 		{
 			if (knockback)
@@ -70,37 +83,46 @@ public class Movimiento : MonoBehaviour
 			}
 			if (!knockback)
 			{
+				if (!pausa)
+				{
 
-				shit = true;
-				// crea vector 3 en 0,0,0
-				Vector3 movimiento = Vector3.zero;
+					movimientos();
+				}
 
-				// reciven los movimientos del teclado/ control
-				float deltaX = Input.GetAxis("Joystick" + NumeroDeControl + "LX");
-				float deltaZ = -Input.GetAxis("Joystick" + NumeroDeControl + "LY");
-				float deltaY = 0;
-
-
-
-				Quaternion tmp = camara.rotation;
-
-				movimiento = ExtraerMovimiento(movimiento, deltaX, deltaZ, tmp);
-
-				// controla la animacion de movimiento
-				animator.SetFloat("Speed", movimiento.magnitude / 10);
-
-
-				deltaY = Salto();
-
-
-				movimiento.y += deltaY;
-				movimiento *= Time.deltaTime;
-
-
-
-				control.Move(movimiento);
 			}
 		}
+	}
+
+	private void movimientos()
+	{
+		shit = true;
+		// crea vector 3 en 0,0,0
+		Vector3 movimiento = Vector3.zero;
+
+		// reciven los movimientos del teclado/ control
+		float deltaX = Input.GetAxis("Joystick" + NumeroDeControl + "LX");
+		float deltaZ = -Input.GetAxis("Joystick" + NumeroDeControl + "LY");
+		float deltaY = 0;
+
+
+
+		Quaternion tmp = camara.rotation;
+
+		movimiento = ExtraerMovimiento(movimiento, deltaX, deltaZ, tmp);
+
+		// controla la animacion de movimiento
+		animator.SetFloat("Speed", movimiento.magnitude / 10);
+
+
+		deltaY = Salto();
+
+
+		movimiento.y += deltaY;
+		movimiento *= Time.deltaTime;
+
+
+
+		control.Move(movimiento);
 	}
 
 	// fuerza del knockback
