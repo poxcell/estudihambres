@@ -18,9 +18,16 @@ public class Stats : MonoBehaviour {
 	[SerializeField] private float RespawnTiempo;
 	
 
+
+
+
 	private Vector3 RespawnPos;
 
 	public Image healthBar;
+
+
+
+	[SerializeField] private GameObject ReprobasteScreen;
 
 
 	void Awake()
@@ -52,7 +59,10 @@ public class Stats : MonoBehaviour {
 			GetComponentInChildren<Animator>().SetBool("muerto", true);
 			this.GetComponent<Movimiento>().SetMuerte(true);
 				
-				StartCoroutine(Respawn());
+				// multiplayer StartCoroutine(Respawn());
+
+				// singleplayer
+				ReprobasteScreen.SetActive(true);
 			}
 			if (!respawneable)
 			{
@@ -75,6 +85,21 @@ public class Stats : MonoBehaviour {
 		actualizarBarraVida();
 		transform.position = RespawnPos;
 	}
+
+	//respawn singleplayer
+
+	public void RespawnSingle()
+	{
+		this.GetComponent<Movimiento>().SetMuerte(false);
+		GetComponentInChildren<Animator>().SetBool("muerto", false);
+		vida = maxvida;
+
+
+		actualizarBarraVida();
+		transform.position = RespawnPos;
+		ReprobasteScreen.SetActive(false);
+	}
+
 	IEnumerator MuerteEnemy()
 	{
 		yield return new WaitForSeconds(RespawnTiempo);
