@@ -27,6 +27,11 @@ public class Movimiento : MonoBehaviour
 
 	bool shit = true;
 
+	public string GetControl()
+	{
+		return NumeroDeControl;
+	}
+
 	void Awake()
 	{
 		control = GetComponent<CharacterController>();
