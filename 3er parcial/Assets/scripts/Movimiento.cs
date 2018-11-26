@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movimiento : MonoBehaviour
 {
+	List<GameObject> children = new List<GameObject>();
 	[SerializeField] GameObject PausaObj;
 	[SerializeField] private string NumeroDeControl;
 	[SerializeField] private Transform camara;
@@ -17,7 +18,8 @@ public class Movimiento : MonoBehaviour
 
 	public float rotate = 10f;
 	private float vertSpeed;
-	private Animator animator;
+	// multiplayer array
+	private Animator[] animator = new Animator[4];
 	private CharacterController control;
 
 	private bool muerto;
@@ -45,7 +47,20 @@ public class Movimiento : MonoBehaviour
 	{
 		control = GetComponent<CharacterController>();
 		vertSpeed = minGravedad;
-		animator = GetComponentInChildren<Animator>();
+		// multiplayer array
+		animator = GetComponentsInChildren<Animator>();
+		foreach(Animator anim in animator)
+		{
+			children.Add(anim.gameObject);
+		}
+		
+	}
+	public void TriggerGolpe()
+	{
+		foreach (Animator anim in animator)
+		{
+			anim.SetTrigger("Golpe");
+		}
 	}
 
 	public void  SetMuerte(bool a)
@@ -65,7 +80,16 @@ public class Movimiento : MonoBehaviour
 	{
 		yield return new WaitForSeconds(.3f);
 		knockback = false;
-		animator.SetBool("knock", false);
+
+		// multi
+		//for (int i = 0; i < animator.Length - 1; i++)
+		//{
+		//	animator[i].SetBool("knock", false);
+		//}
+		foreach (Animator anim in animator)
+		{
+			anim.SetBool("knock", false);
+		}
 
 	}
 		void FixedUpdate()
@@ -73,14 +97,30 @@ public class Movimiento : MonoBehaviour
 		Pause();
 		if (Input.GetButtonDown("Joystick"+NumeroDeControl+"Lanzar"))
 		{
-			animator.SetTrigger("Lanzar");
+			// multi
+			//for (int i = 0; i < animator.Length - 1; i++)
+			//{
+			//	animator[i].SetTrigger("Lanzar");
+			//}
+			foreach (Animator anim in animator)
+			{
+				anim.SetTrigger("Lanzar");
+			}
 		}
 		if (!muerto)
 		{
 			if (knockback)
 			{
 				knockbacked();
-				animator.SetBool("knock", true);
+				//multi
+				//for (int i = 0; i < animator.Length - 1; i++)
+				//{
+				//	animator[i].SetBool("knock", true);
+				//}
+				foreach (Animator anim in animator)
+				{
+					anim.SetBool("knock", true);
+				}
 			}
 			if (!knockback)
 			{
@@ -122,9 +162,17 @@ public class Movimiento : MonoBehaviour
 		movimiento = ExtraerMovimiento(movimiento, deltaX, deltaZ, tmp);
 
 		// controla la animacion de movimiento
-		animator.SetFloat("Speed", movimiento.magnitude / 10);
+		// multi
+		//for (int i = 0; i < animator.Length - 1; i++)
+		//{
+		//	animator[i].SetFloat("Speed", movimiento.magnitude / 10);
+		//}
+		foreach (Animator anim in animator)
+		{
+			anim.SetFloat("Speed", movimiento.magnitude/10);
+		}
 
-			deltaY = Salto();
+		deltaY = Salto();
 		
 
 
@@ -230,9 +278,20 @@ public class Movimiento : MonoBehaviour
 				if (timeElapsed >= waitJump)
 				{
 
-				vertSpeed = fuerzaSalto;
-				animator.SetBool("salto", true);
-				timeElapsed = 0;
+					vertSpeed = fuerzaSalto;
+					//multi
+					/*
+					for (int i = 0; i < animator.Length - 1; i++)
+					{
+						animator[i].SetBool("salto", true);
+					}
+					timeElapsed = 0;
+					*/
+					foreach (Animator anim in animator)
+					{
+						anim.SetBool("salto", true);
+					}
+
 				}
 				
 			}
@@ -252,7 +311,17 @@ public class Movimiento : MonoBehaviour
 			{
 				vertSpeed = velterminal;
 			}
-			animator.SetBool("salto", false);
+			// multi
+			/*
+			for (int i = 0; i < animator.Length - 1; i++)
+			{
+				animator[i].SetBool("salto", false);
+			}
+			*/
+			foreach (Animator anim in animator)
+			{
+				anim.SetBool("salto", false);
+			}
 
 		}
 		return vertSpeed;
