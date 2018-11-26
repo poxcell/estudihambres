@@ -10,6 +10,8 @@ public class lanzarobjetos : MonoBehaviour {
 	[SerializeField] private Transform spawnPoint;
 	private float timeElapsed;
 	public float wait;
+
+
 	void FixedUpdate () {
 		if (timeElapsed >= wait && Input.GetButtonDown("Joystick" + NumeroDeControl + "Lanzar"))
 		{
