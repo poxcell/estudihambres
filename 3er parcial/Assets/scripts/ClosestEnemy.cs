@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ClosestEnemy : MonoBehaviour {
 
-	public GameObject Enemyname;
+	private GameObject Enemyname;
 	void Start()
 	{
 		Enemyname = null;

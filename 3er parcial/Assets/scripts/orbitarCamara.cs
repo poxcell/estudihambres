@@ -41,14 +41,21 @@ public class orbitarCamara : MonoBehaviour {
 			enemigo = null;
 			lockON = false;
 		}
-		if (lockON)
+		if (enemigo != null)
 		{
+			if (lockON)
+			{
 
-		lockOnenemy();
+			lockOnenemy();
+			}
+			else
+			{
+
+				lockonPlayer();
+			}
 		}
 		else
 		{
-
 			lockonPlayer();
 		}
 		
@@ -81,54 +88,56 @@ public class orbitarCamara : MonoBehaviour {
 	{
 		
 
-		float dx = (personaje.position.x - enemigo.transform.position.x);
-		float dz = (personaje.position.z - enemigo.transform.position.z);
+			float dx = (personaje.position.x - enemigo.transform.position.x);
+			float dz = (personaje.position.z - enemigo.transform.position.z);
 
 
-		Vector3 posicionar = new Vector3(0, dist, 0);
-		posicionar += enemigo.transform.position;
+			Vector3 posicionar = new Vector3(0, dist, 0);
+			posicionar += enemigo.transform.position;
 
 
 
-		Vector3 rotacion;
-		rotacion.x = Mathf.Clamp(dx, -1, 1);
-		rotacion.z = Mathf.Clamp(dz, -1, 1);
-		rotacion.y = 0;
+			Vector3 rotacion;
+			rotacion.x = Mathf.Clamp(dx, -1, 1);
+			rotacion.z = Mathf.Clamp(dz, -1, 1);
+			rotacion.y = 0;
 
-		/*
-		if (rotacion.x >0)
-		{
-			rotacion.x = 1;
-		}
-		else if (rotacion.x < 0)
-		{
-			rotacion.x = -1;
-		}
+			/*
+			if (rotacion.x >0)
+			{
+				rotacion.x = 1;
+			}
+			else if (rotacion.x < 0)
+			{
+				rotacion.x = -1;
+			}
 
-		if (rotacion.z > 0)
-		{
-			rotacion.z = 1;
-		}
-		else if (rotacion.z < 0)
-		{
-			rotacion.z = -1;
-		}
-		*/
+			if (rotacion.z > 0)
+			{
+				rotacion.z = 1;
+			}
+			else if (rotacion.z < 0)
+			{
+				rotacion.z = -1;
+			}
+			*/
 
 
-		//Vector3 newpos = Vector3.Scale(new Vector3(rotacion.ToEuler()), lockedOffset);
+			//Vector3 newpos = Vector3.Scale(new Vector3(rotacion.ToEuler()), lockedOffset);
 
-		Vector3 newpos = new Vector3(rotacion.x * lockedOffset.x, lockedHeight, rotacion.z * lockedOffset.z);
+			Vector3 newpos = new Vector3(rotacion.x * lockedOffset.x, lockedHeight, rotacion.z * lockedOffset.z);
 
-		transform.localPosition = personaje.position + newpos ;
+			transform.localPosition = personaje.position + newpos ;
 		
-		//transform.position = personaje.position - (rotacion * newpos) ;
+			//transform.position = personaje.position - (rotacion * newpos) ;
 
-		//transform.position += new Vector3(0, lockedHeight, 0);
+			//transform.position += new Vector3(0, lockedHeight, 0);
 
 
 		
-		transform.LookAt(enemigo.transform.position);
+			transform.LookAt(enemigo.transform.position);
+		
+
 		
 	}
 }
