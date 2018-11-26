@@ -8,7 +8,7 @@ public class cajaDaño : MonoBehaviour {
 	[SerializeField] private Vector2 golpe;
 	private GameObject personaje;
 	[SerializeField] private bool canKnockback;
-
+	[SerializeField] private bool DestroyOnContact;
 	// Use this for initialization
 	void Awake () {
 		personaje = this.transform.parent.gameObject;
@@ -25,7 +25,7 @@ public class cajaDaño : MonoBehaviour {
 	{
 		if (personaje.tag != other.tag)
 		{
-				 
+			/*	 
 			if (other.tag == "Player")
 			{
 				other.GetComponent<Stats>().tomarDaño(getGolpe());
@@ -34,6 +34,20 @@ public class cajaDaño : MonoBehaviour {
 					other.GetComponent<Movimiento>().kncokbackOnDamage();
 				}
 			}
+			*/
+			if ((other.tag == "Player" || other.tag == "Enemy") && other.tag != personaje.tag)
+			{
+				other.GetComponent<Stats>().tomarDaño(getGolpe());
+				if (canKnockback)
+				{
+					other.GetComponent<Movimiento>().kncokbackOnDamage();
+				}
+				if (DestroyOnContact)
+				{
+					Destroy(this.gameObject);
+				}
+			}
+
 		}
 	}
 

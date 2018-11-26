@@ -742,9 +742,10 @@ GameObject:
   - component: {fileID: 4904150696409656}
   - component: {fileID: 95738417387010174}
   - component: {fileID: 143338800346887778}
+  - component: {fileID: 114449905053925940}
   m_Layer: 0
   m_Name: prefecto
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1471,7 +1472,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1462390787999924}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.0052762935, z: 0.08334028}
+  m_LocalPosition: {x: -19.2, y: 0.1, z: 13.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4904150696409656}
@@ -1498,7 +1499,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1712476833746232}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -28.8, y: -0.05, z: 38}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4904150696409656}
@@ -1837,7 +1838,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1721536980974818}
   m_LocalRotation: {x: -0.00014464882, y: 0.00082492473, z: 0.0021868055, w: 0.99999726}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 32.5, y: 0.1, z: -29.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4547964089798120}
@@ -1936,7 +1937,7 @@ Animator:
   m_GameObject: {fileID: 1721536980974818}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: fd9357e91eecf974f8269dca7d3acbb0, type: 3}
-  m_Controller: {fileID: 9100000, guid: 85e340ac8839d2b47ab6e15046a4381b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 68b7e290ec8cf0b43be0be4471086849, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -1945,6 +1946,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114449905053925940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1721536980974818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05f026bfd2ff9644a9ad0e1139b0625f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vida: 20
+  maxvida: 20
+  invencible: 0
+  respawneable: 0
+  RespawnTiempo: 0
+  vidas: 0
+  healthBar: {fileID: 0}
+  ReprobasteScreen: {fileID: 0}
 --- !u!137 &137623471082182186
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

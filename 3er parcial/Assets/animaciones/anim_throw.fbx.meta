@@ -166,11 +166,18 @@ ModelImporter:
     rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
-    animationRetargetingWarnings: 
+    animationRetargetingWarnings: "\nRetargeting quality report for clip 'throw':\n\tLeftLowerLeg
+      average position error 17.7 mm and maximum position error 17.7 mm at time 0:22
+      (42.6%) Frame 22\n\tLeftFoot average position error 17.6 mm and maximum position
+      error 17.7 mm at time 0:22 (42.6%) Frame 22\n\tRightLowerLeg average position
+      error 17.6 mm and maximum position error 17.7 mm at time 0:13 (23.4%) Frame
+      13\n\tRightFoot average position error 17.6 mm and maximum position error 17.7
+      mm at time 0:15 (27.7%) Frame 15\n\tRightLowerArm average position error 0.8
+      mm and maximum position error 6.0 mm at time 0:18 (34.0%) Frame 18\n"
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 3
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
@@ -181,8 +188,8 @@ ModelImporter:
     - serializedVersion: 16
       name: throw
       takeName: throw
-      firstFrame: 0
-      lastFrame: 50
+      firstFrame: 3
+      lastFrame: 49
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -192,19 +199,19 @@ ModelImporter:
       loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
       heightFromFeet: 0
       mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      bodyMask: 01000000010000000100000000000000000000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events: []
       transformMask: []
       maskType: 3
-      maskSource: {instanceID: 0}
+      maskSource: {fileID: 31900000, guid: 21aaa6298924d4a449e4a705b0cdada1, type: 2}
       additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
@@ -735,7 +742,7 @@ ModelImporter:
     - name: R_Hip_Jnt
       parentName: Pelv_Jnt
       position: {x: 0.02551204, y: -0.021854796, z: -0.12788077}
-      rotation: {x: 0.82189643, y: -0.5692063, z: -0.0054564388, w: -0.021462115}
+      rotation: {x: 0.8218965, y: -0.56920636, z: -0.005456439, w: -0.021462116}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Knee_Jnt
       parentName: R_Hip_Jnt
@@ -804,8 +811,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: L_Index_1_Jnt
       parentName: L_Wrist_Jnt
-      position: {x: -0.11668865, y: -0.04631894, z: 0.06544254}
-      rotation: {x: -0.5752975, y: -0.014647662, z: 0.19588725, w: 0.79400665}
+      position: {x: -0.11671574, y: -0.046341754, z: 0.06545063}
+      rotation: {x: -0.5757476, y: -0.00998755, z: 0.19162923, w: 0.79479134}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Index_2_Jnt
       parentName: L_Index_1_Jnt
@@ -819,13 +826,13 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: L_Little_1_Jnt
       parentName: L_Wrist_Jnt
-      position: {x: -0.113328226, y: -0.031086765, z: -0.044779506}
-      rotation: {x: 0.90272737, y: 0.095567025, z: -0.1217648, w: -0.40140215}
+      position: {x: -0.1133781, y: -0.031124672, z: -0.04477816}
+      rotation: {x: 0.90153605, y: 0.10496234, z: -0.12383613, w: -0.401099}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Little_2_Jnt
       parentName: L_Little_1_Jnt
-      position: {x: -0.04548817, y: -0.0000000649346, z: -0.0000004300958}
-      rotation: {x: -0.00000032782532, y: -0.03364265, z: 0.00000043958394, w: 0.99943393}
+      position: {x: -0.045520764, y: 0.000004120171, z: -0.000004304573}
+      rotation: {x: -0.00043764678, y: -0.036173534, z: -0.0033527887, w: 0.9993398}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Little_3_Jnt
       parentName: L_Little_2_Jnt
@@ -834,8 +841,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: L_Middle_1_Jnt
       parentName: L_Wrist_Jnt
-      position: {x: -0.13625173, y: -0.025074793, z: 0.034954388}
-      rotation: {x: -0.6756405, y: -0.04312695, z: 0.16527413, w: 0.7171712}
+      position: {x: -0.1362768, y: -0.025097998, z: 0.034960005}
+      rotation: {x: -0.67545456, y: -0.044690225, z: 0.16637221, w: 0.7169967}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Middle_2_Jnt
       parentName: L_Middle_1_Jnt
@@ -849,8 +856,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: L_Ring_1_Jnt
       parentName: L_Wrist_Jnt
-      position: {x: -0.1327108, y: -0.021084506, z: -0.0090516275}
-      rotation: {x: -0.7470905, y: -0.058225866, z: 0.15030108, w: 0.6448839}
+      position: {x: -0.13275419, y: -0.021119617, z: -0.009044414}
+      rotation: {x: -0.75428075, y: -0.04389386, z: 0.08719008, w: 0.6492548}
       scale: {x: 1, y: 1, z: 1}
     - name: L_Ring_2_Jnt
       parentName: L_Ring_1_Jnt
@@ -969,8 +976,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: R_Index_1_Jnt
       parentName: R_Wrist_Jnt
-      position: {x: 0.11668869, y: 0.046318907, z: -0.065442495}
-      rotation: {x: -0.5752959, y: -0.014652697, z: 0.19589196, w: 0.79400647}
+      position: {x: 0.116718754, y: 0.046311695, z: -0.06545613}
+      rotation: {x: -0.5874917, y: 0.020993127, z: 0.18854514, w: 0.7866788}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Index_2_Jnt
       parentName: R_Index_1_Jnt
@@ -984,8 +991,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: R_Little_1_Jnt
       parentName: R_Wrist_Jnt
-      position: {x: 0.11332866, y: 0.031087205, z: 0.04477956}
-      rotation: {x: -0.7677016, y: -0.060713194, z: 0.14239015, w: 0.6218306}
+      position: {x: 0.11334339, y: 0.03108512, z: 0.044775266}
+      rotation: {x: -0.76807886, y: -0.057621885, z: 0.14044286, w: 0.6221016}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Little_2_Jnt
       parentName: R_Little_1_Jnt
@@ -999,8 +1006,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: R_Middle_1_Jnt
       parentName: R_Wrist_Jnt
-      position: {x: 0.13625264, y: 0.025074802, z: -0.034954336}
-      rotation: {x: -0.67564017, y: -0.04312716, z: 0.16527435, w: 0.7171714}
+      position: {x: 0.13625434, y: 0.025074495, z: -0.034955382}
+      rotation: {x: -0.67436814, y: -0.053072155, z: 0.17355883, w: 0.71574324}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Middle_2_Jnt
       parentName: R_Middle_1_Jnt
@@ -1014,8 +1021,8 @@ ModelImporter:
       scale: {x: 1, y: 1, z: 1}
     - name: R_Ring_1_Jnt
       parentName: R_Wrist_Jnt
-      position: {x: 0.1327113, y: 0.021084253, z: 0.009051652}
-      rotation: {x: -0.7470915, y: -0.05822451, z: 0.15029787, w: 0.64488363}
+      position: {x: 0.13273305, y: 0.021080859, z: 0.009047871}
+      rotation: {x: -0.7462463, y: -0.06480521, z: 0.15472783, w: 0.64418644}
       scale: {x: 1, y: 1, z: 1}
     - name: R_Ring_2_Jnt
       parentName: R_Ring_1_Jnt

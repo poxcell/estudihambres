@@ -68,11 +68,10 @@ public class Movimiento : MonoBehaviour
 	}
 		void FixedUpdate()
 	{
-		if (Input.GetButtonDown("Submit"))
+		Pause();
+		if (Input.GetButtonDown("Joystick"+NumeroDeControl+"Lanzar"))
 		{
-			pausa = true;
-			PausaObj.SetActive(true);
-			this.gameObject.SetActive(false);
+			animator.SetTrigger("Lanzar");
 		}
 		if (!muerto)
 		{
@@ -90,6 +89,16 @@ public class Movimiento : MonoBehaviour
 				}
 
 			}
+		}
+	}
+
+	private void Pause()
+	{
+		if (Input.GetButtonDown("Submit"))
+		{
+			pausa = true;
+			PausaObj.SetActive(true);
+			this.gameObject.SetActive(false);
 		}
 	}
 
