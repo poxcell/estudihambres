@@ -124,7 +124,11 @@ public class Stats : MonoBehaviour {
 		}
 
 		actualizarBarraVida();
-		this.gameObject.GetComponent<Animator>().SetTrigger("dano");
+		if (this.gameObject.tag =="Enemy")
+		{
+
+			this.gameObject.GetComponent<Animator>().SetTrigger("dano");
+		}
 	}
 	
 	private void actualizarBarraVida()
