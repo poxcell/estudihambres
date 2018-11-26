@@ -27,6 +27,8 @@ public class Movimiento : MonoBehaviour
 	private bool pausa = false;
 
 	bool shit = true;
+	[SerializeField] private float waitJump;
+	private float timeElapsed;
 
 	public string GetControl()
 	{
@@ -122,8 +124,8 @@ public class Movimiento : MonoBehaviour
 		// controla la animacion de movimiento
 		animator.SetFloat("Speed", movimiento.magnitude / 10);
 
-
-		deltaY = Salto();
+			deltaY = Salto();
+		
 
 
 		movimiento.y += deltaY;
@@ -225,12 +227,22 @@ public class Movimiento : MonoBehaviour
 		{
 			if (Input.GetButton("Joystick"+NumeroDeControl+"Jump"))
 			{
+				if (timeElapsed >= waitJump)
+				{
+
 				vertSpeed = fuerzaSalto;
 				animator.SetBool("salto", true);
+				timeElapsed = 0;
+				}
+				
 			}
 			else
 			{
 				vertSpeed = minGravedad;
+			}
+			if (timeElapsed < waitJump)
+			{
+				timeElapsed += Time.deltaTime;
 			}
 		}
 		else

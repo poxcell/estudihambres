@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11f70f05c20937c4e855a2e7a45f3d37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  golpe: {x: 0, y: 0}
-  DestroyOnContact: 0
+  golpe: {x: 5, y: 15}
+  DestroyOnContact: 1

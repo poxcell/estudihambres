@@ -68,6 +68,7 @@ public class Stats : MonoBehaviour {
 			{
 				GetComponentInChildren<Animator>().SetBool("muerto", true);
 				StartCoroutine(MuerteEnemy());
+				this.gameObject.GetComponent<Animator>().SetTrigger("muerte");
 			}
 		}
 
@@ -111,6 +112,7 @@ public class Stats : MonoBehaviour {
 	IEnumerator MuerteEnemy()
 	{
 		yield return new WaitForSeconds(RespawnTiempo);
+		
 		Destroy(this.transform.parent.gameObject);
 	}
 	// llamar para recibir daño
@@ -122,6 +124,7 @@ public class Stats : MonoBehaviour {
 		}
 
 		actualizarBarraVida();
+		this.gameObject.GetComponent<Animator>().SetTrigger("dano");
 	}
 	
 	private void actualizarBarraVida()

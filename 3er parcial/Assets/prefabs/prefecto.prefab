@@ -1940,7 +1940,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 68b7e290ec8cf0b43be0be4471086849, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -1961,7 +1961,7 @@ MonoBehaviour:
   maxvida: 20
   invencible: 0
   respawneable: 0
-  RespawnTiempo: 0
+  RespawnTiempo: 3
   vidas: 0
   healthBar: {fileID: 0}
   ReprobasteScreen: {fileID: 0}

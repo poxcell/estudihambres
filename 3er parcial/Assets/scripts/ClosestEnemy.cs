@@ -5,6 +5,7 @@ using UnityEngine;
 public class ClosestEnemy : MonoBehaviour {
 
 	private GameObject Enemyname;
+	public float Distancia;
 	void Start()
 	{
 		Enemyname = null;
@@ -25,7 +26,7 @@ public class ClosestEnemy : MonoBehaviour {
 		GameObject[] gos;
 		gos = GameObject.FindGameObjectsWithTag("Enemy");
 		GameObject closest = null;
-		float distance = Mathf.Infinity;
+		float distance = Distancia;
 		Vector3 position = transform.position;
 		foreach (GameObject go in gos)
 		{
