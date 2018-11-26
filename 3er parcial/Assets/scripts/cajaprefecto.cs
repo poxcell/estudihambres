@@ -21,8 +21,9 @@ public class cajaprefecto : MonoBehaviour
 			if (tiempo >= wait)
 			{
 
-			GetComponentInParent<PrefectoAnim>().Golpear();
-			other.gameObject.GetComponent<Stats>().tomarDaño(daño);
+				GetComponentInParent<PrefectoAnim>().Golpear();
+				other.gameObject.GetComponent<Stats>().tomarDaño(daño);
+				other.gameObject.GetComponent<Movimiento>().TriggerDaño();
 				tiempo = 0;
 			}
 		}

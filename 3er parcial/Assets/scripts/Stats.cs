@@ -130,6 +130,7 @@ public class Stats : MonoBehaviour {
 		if (!invencible)
 		{
 			vida -= daño;
+			
 		}
 
 		actualizarBarraVida();

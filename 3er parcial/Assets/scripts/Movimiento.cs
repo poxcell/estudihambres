@@ -37,6 +37,7 @@ public class Movimiento : MonoBehaviour
 		return NumeroDeControl;
 	}
 
+
 	public void UnPause()
 	{
 		pausa = false;
@@ -48,6 +49,7 @@ public class Movimiento : MonoBehaviour
 		control = GetComponent<CharacterController>();
 		vertSpeed = minGravedad;
 		// multiplayer array
+
 		animator = GetComponentsInChildren<Animator>();
 		foreach(Animator anim in animator)
 		{
@@ -183,6 +185,14 @@ public class Movimiento : MonoBehaviour
 
 		control.Move(movimiento);
 	}
+	public void TriggerDaño()
+	{
+		foreach (Animator anim in animator)
+		{
+			anim.SetTrigger("dano");
+		}
+	}
+
 
 	// fuerza del knockback
 	private void knockbacked()
