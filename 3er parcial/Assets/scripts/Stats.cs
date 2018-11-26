@@ -41,6 +41,15 @@ public class Stats : MonoBehaviour {
 	{
 		return vida;
 	}
+	public bool CanHeal()
+	{
+		if (maxvida > vida)
+		{
+			return true;
+		}
+		else return false;
+	}
+
 	
 	
 	void Update()

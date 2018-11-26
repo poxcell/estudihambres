@@ -5,12 +5,18 @@ using UnityEngine;
 public class SpawnSoda : MonoBehaviour {
 
 	[SerializeField] GameObject Soda;
+	[SerializeField] GameObject Spawn;
 
+	[SerializeField] int Cantidad;
 	public void collision()
 	{
-		Debug.Log("asdf");
-		
-		GameObject soda = Instantiate(Soda, transform.position, transform.rotation);
+
+		if (Cantidad>0)
+		{
+
+		GameObject soda = Instantiate(Soda, Spawn.transform.position, transform.rotation);
+			Cantidad --;
+		}
 		
 	}
 }

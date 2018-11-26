@@ -3,15 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class golpeMaquina : MonoBehaviour {
-
-	 void OnTriggerEnter(Collider other)
+	private GameObject maquina;
+	void OnTriggerEnter(Collider other)
 	{
-
-		Debug.Log("asdfasdf");
-		if (other.tag == "Maquina")
+		if (other.tag == "Soda")
 		{
-			Debug.Log("ferfergerger");
-			//other.GetComponent<SpawnSoda>().collision();
+			other.GetComponent<SpawnSoda>().collision();
+			
 		}
 	}
 }

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 65048455155858282}
   - component: {fileID: 114331622136210756}
   - component: {fileID: 114416625278682304}
+  - component: {fileID: 114437805433172618}
   m_Layer: 0
   m_Name: cartucho
   m_TagString: "CajaDa\xF1o"
@@ -123,3 +124,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   golpe: {x: 5, y: 15}
   DestroyOnContact: 1
+--- !u!114 &114437805433172618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1554851752808522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a682338356d521c47a6e74e3c269cf18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

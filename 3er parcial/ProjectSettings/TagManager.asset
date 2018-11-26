@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - "CajaDa\xF1o"
+  - Soda
   layers:
   - Default
   - TransparentFX

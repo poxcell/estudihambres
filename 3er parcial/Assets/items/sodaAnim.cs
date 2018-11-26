@@ -22,9 +22,13 @@ public class sodaAnim : MonoBehaviour
 
 		if (other.tag == "Player")
 		{
-			other.GetComponent<Stats>().tomarVida(CantidadVida);
+			if (other.GetComponent<Stats>().CanHeal())
 			{
-				Destroy(this.gameObject);
+				
+				other.GetComponent<Stats>().tomarVida(CantidadVida);
+				{
+					Destroy(this.gameObject);
+				}
 			}
 		}
 

@@ -16,11 +16,11 @@ public class LockOn : MonoBehaviour {
 	{
 
 
-		if (Input.GetButtonDown("Joystick" + NumeroDeControl + "Lanzar"))
+		if (Input.GetButtonDown("Joystick" + NumeroDeControl + "Apuntar"))
 		{
 			Enemy = transform.parent.gameObject.GetComponent<ClosestEnemy>().GetEnemy();
 		}
-		if (Input.GetButtonUp("Joystick" + NumeroDeControl + "Lanzar"))
+		if (Input.GetButtonUp("Joystick" + NumeroDeControl + "Apuntar"))
 		{
 			Enemy = null;
 		}
