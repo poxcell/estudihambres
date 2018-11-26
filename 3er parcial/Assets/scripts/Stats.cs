@@ -140,7 +140,7 @@ public class Stats : MonoBehaviour {
 		}
 	}
 	// llamar para recibir vida
-	void tomarVida(float vidai)
+	public void tomarVida(float vidai)
 	{
 		vida += vidai;
 		actualizarBarraVida();

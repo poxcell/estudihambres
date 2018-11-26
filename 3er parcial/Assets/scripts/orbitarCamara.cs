@@ -127,7 +127,7 @@ public class orbitarCamara : MonoBehaviour {
 
 			Vector3 newpos = new Vector3(rotacion.x * lockedOffset.x, lockedHeight, rotacion.z * lockedOffset.z);
 
-			transform.localPosition = personaje.position + newpos ;
+			transform.position = personaje.position +newpos ;
 		
 			//transform.position = personaje.position - (rotacion * newpos) ;
 

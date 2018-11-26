@@ -9,11 +9,12 @@ public class EnemyDespawner : MonoBehaviour {
 		if (other.tag == "Enemy")
 		{
 			enemy = other.gameObject;
+			
 			//Debug.Log( other.GetComponent<taclear>().name);
 
 			//Debug.Log(other.gameObject.name); 
 
-			Destroy(enemy,3);
+			Destroy(enemy.transform.parent.gameObject,3);
 			enemy.GetComponent<Animator>().SetTrigger("tacle");
 			enemy.GetComponent<movimientoamericano>().DetenerMovimiento();
 			enemy = null;

@@ -10,6 +10,9 @@ public class EnemySpawner : MonoBehaviour {
 	[SerializeField] float SpawnDelay;
 	[SerializeField] bool isamericano;
 	[SerializeField] bool isprefecto;
+	
+		
+
 
 	// Update is called once per frame
 	void Update () {
@@ -26,12 +29,12 @@ public class EnemySpawner : MonoBehaviour {
 		{
 			GameObject clone = Instantiate(americano, transform.position, transform.rotation);
 
-			Destroy(clone, 5f);
+			
 		}
 		if (isprefecto)
 		{
 			GameObject clone = Instantiate(prefecto, transform.position, transform.rotation);
-			Destroy(clone, 1f);
+			
 		}
 	}
 
