@@ -5,13 +5,24 @@ using UnityEngine;
 public class gates : MonoBehaviour {
 
 	[SerializeField] private int NumMonedas;
+	
+	public bool usb;
 
 
 	public void Destruir(int monedas)
 	{
-		if (monedas >= NumMonedas)
+		if (!usb)
 		{
-			Destroy(this.gameObject);
+
+			if (monedas >= NumMonedas)
+			{
+				Destroy(this.gameObject);
+			}
 		}
+		
+	}
+	public void Recolectado()
+	{
+		Destroy(this.gameObject);
 	}
 }
